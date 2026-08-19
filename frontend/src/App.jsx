@@ -34,7 +34,7 @@ export function App() {
     // Call Member 2 Rule Engine
     const ruleRes = await validateClaim(claimData);
     
-    // Call Member 3 AI Layer
+    // Call Member 1 AI Layer
     const aiRes = await analyzeClaim(claimData, claimData.clinical_notes);
 
     setValidationResult(ruleRes.data);

@@ -123,7 +123,7 @@ export function ValidationResults({ result, aiResult, claim, onBackToEdit, onApp
             </div>
             {aiResult?.document_analysis && (
               <div className="flex justify-between">
-                <span>Doc Quality Score (Member 3 AI):</span>
+                <span>Doc Quality Score (Member 1 AI):</span>
                 <span className="font-bold text-indigo-700">{aiResult.document_analysis.completeness_score}/100</span>
               </div>
             )}
