@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "cpt_code": "27447",
+      "description": "Total knee replacement",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": true,
+      "medicaid_required": true,
+      "auth_category": "surgical_procedure",
+      "typical_lead_time_days": 5
+    },
+    {
+      "cpt_code": "27130",
+      "description": "Total hip replacement",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": true,
+      "medicaid_required": true,
+      "auth_category": "surgical_procedure",
+      "typical_lead_time_days": 5
+    },
+    {
+      "cpt_code": "93306",
+      "description": "Echocardiography complete",
+      "payers_requiring_auth": ["UnitedHealthcare", "Cigna"],
+      "medicare_required": false,
+      "medicaid_required": true,
+      "auth_category": "diagnostic_imaging",
+      "typical_lead_time_days": 3
+    },
+    {
+      "cpt_code": "70553",
+      "description": "MRI brain with and without contrast",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": false,
+      "medicaid_required": true,
+      "auth_category": "diagnostic_imaging",
+      "typical_lead_time_days": 3
+    },
+    {
+      "cpt_code": "43239",
+      "description": "Upper GI endoscopy with biopsy",
+      "payers_requiring_auth": ["UnitedHealthcare", "Cigna"],
+      "medicare_required": false,
+      "medicaid_required": false,
+      "auth_category": "procedure",
+      "typical_lead_time_days": 3
+    },
+    {
+      "cpt_code": "27245",
+      "description": "Treatment of thighbone fracture with implant",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": true,
+      "medicaid_required": true,
+      "auth_category": "surgical_procedure",
+      "typical_lead_time_days": 5
+    },
+    {
+      "cpt_code": "22612",
+      "description": "Lumbar spine fusion",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": true,
+      "medicaid_required": true,
+      "auth_category": "surgical_procedure",
+      "typical_lead_time_days": 7
+    },
+    {
+      "cpt_code": "70450",
+      "description": "CT scan head or brain without contrast",
+      "payers_requiring_auth": ["Aetna", "Cigna"],
+      "medicare_required": false,
+      "medicaid_required": false,
+      "auth_category": "diagnostic_imaging",
+      "typical_lead_time_days": 2
+    },
+    {
+      "cpt_code": "93452",
+      "description": "Left heart catheterization",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": false,
+      "medicaid_required": true,
+      "auth_category": "procedure",
+      "typical_lead_time_days": 3
+    },
+    {
+      "cpt_code": "63047",
+      "description": "Lumbar spinal surgery",
+      "payers_requiring_auth": ["UnitedHealthcare", "Aetna", "Cigna", "BCBS"],
+      "medicare_required": true,
+      "medicaid_required": true,
+      "auth_category": "surgical_procedure",
+      "typical_lead_time_days": 7
+    }
+  ]
+}
