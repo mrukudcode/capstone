@@ -20,7 +20,7 @@ export async function validateClaim(claimData) {
 }
 
 /**
- * Analyzes a claim with Member 1 Claude AI Layer
+ * Analyzes a claim with Member 3 Claude AI Layer
  * Falls back to local simulation if backend is offline.
  */
 export async function analyzeClaim(claimData, clinicalNotes = "") {
@@ -63,7 +63,7 @@ export async function checkBackendStatus() {
 }
 
 // ----------------------------------------------------------------------
-// Local Resilient Rule Engine Simulation (Matches Member 2 & 1 specs)
+// Local Resilient Rule Engine Simulation (Matches Member 2 & 3 specs)
 // ----------------------------------------------------------------------
 
 function simulateRuleEngine(claim) {
