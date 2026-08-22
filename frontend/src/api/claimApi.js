@@ -10,7 +10,7 @@ const AI_API = "/api/ai";
  */
 export async function validateClaim(claimData) {
   try {
-    const res = await axios.post(`${RULE_API}/validate`, claimData, { timeout: 3000 });
+    const res = await axios.post(`${RULE_API}/validate`, claimData, { timeout: 10000 });
     return { data: res.data, isMock: false };
   } catch (err) {
     console.warn("Backend Rule Engine offline, executing resilient local simulation:", err.message);
@@ -28,7 +28,7 @@ export async function analyzeClaim(claimData, clinicalNotes = "") {
     const res = await axios.post(`${AI_API}/analyze`, {
       claim_data: claimData,
       clinical_notes: clinicalNotes || claimData.clinical_notes || ""
-    }, { timeout: 3500 });
+    }, { timeout: 15000 });
     return { data: res.data, isMock: false };
   } catch (err) {
     console.warn("Backend AI Layer offline, executing resilient local AI simulation:", err.message);
