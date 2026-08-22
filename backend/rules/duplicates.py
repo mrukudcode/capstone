@@ -1,15 +1,17 @@
 from models.claim import Claim, ValidationIssue
-
-# In-memory store for seen claims (resets on server restart)
-_seen_claims = {}
+from db.connection import get_db_cursor
 
 def validate_duplicates(claim: Claim) -> list:
     issues = []
 
     for i, line in enumerate(claim.lines):
+        cur, conn = get_db_cursor()
         key = f"{claim.patient_id}_{line.cpt_code}_{claim.service_date}"
 
-        if key in _seen_claims:
+        cur.execute("SELECT claim_id FROM submitted_claims WHERE claim_key = %s", (key,))
+        existing = cur.fetchone()
+
+        if existing:
             issues.append(ValidationIssue(
                 rule_id="D001",
                 carc_code="18",
@@ -20,6 +22,12 @@ def validate_duplicates(claim: Claim) -> list:
                 affected_line=i
             ))
         else:
-            _seen_claims[key] = claim.claim_id
+            cur.execute(
+                "INSERT INTO submitted_claims (claim_key, claim_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                (key, claim.claim_id)
+            )
+            conn.commit()
+
+        conn.close()
 
     return issues

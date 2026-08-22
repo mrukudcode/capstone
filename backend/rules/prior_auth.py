@@ -2,7 +2,6 @@ import json
 import os
 from models.claim import Claim, ValidationIssue
 
-# Load prior auth rules from data folder
 rules_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "prior_auth_rules.json")
 with open(rules_path) as f:
     AUTH_RULES = {r["cpt_code"]: r for r in json.load(f)["rules"]}

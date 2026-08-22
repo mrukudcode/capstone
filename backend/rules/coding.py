@@ -1,6 +1,10 @@
 from models.claim import Claim, ValidationIssue
 from db.connection import get_db_cursor
 
+def normalize_icd10(code: str) -> str:
+    """Remove dots from ICD-10 codes to match database format"""
+    return code.replace(".", "").strip().upper()
+
 def validate_coding(claim: Claim) -> list:
     issues = []
 
@@ -20,9 +24,10 @@ def validate_coding(claim: Claim) -> list:
                 affected_line=i
             ))
 
-        # Rule C002: Validate ICD-10 codes exist
+        # Rule C002: Validate ICD-10 codes exist (normalize dots)
         for dx in line.icd10_codes:
-            cur.execute("SELECT code FROM icd10_codes WHERE code = %s", (dx,))
+            normalized = normalize_icd10(dx)
+            cur.execute("SELECT code FROM icd10_codes WHERE code = %s", (normalized,))
             if not cur.fetchone():
                 issues.append(ValidationIssue(
                     rule_id="C002",
